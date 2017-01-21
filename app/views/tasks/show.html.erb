@@ -1,0 +1,5 @@
+<h1>Task #<%= @task.id %></h1>
+
+<%= @task.description %>
+<%= link_to "Edit", action: :edit, id: @task.id %>
+<%= link_to "Delete", action: :destroy, id: @task.id %>
