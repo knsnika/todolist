@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1><a href="/">Todo list</a></h1>
+
+<%= link_to "Tasks", root_path %>
+<%= link_to "Projects", projects_path %>
 
 <%= yield %>
 

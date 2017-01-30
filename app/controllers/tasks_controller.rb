@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
     
     before_action :initialize_task, only: [:show, :edit, :update, :destroy]
+    before_action :initialize_project, only: [:index, :create, :new]
     
     def index
-        @tasks = Task.all
+        @tasks = @project.tasks
     end
     
     def new
@@ -11,7 +12,7 @@ class TasksController < ApplicationController
     end
     
     def create
-        Task.create(task_params)
+        @project.tasks.create(task_params)
         redirect_to action: :index
     end
     
@@ -39,5 +40,8 @@ class TasksController < ApplicationController
    
     def initialize_task
         @task = Task.find(params[:id])
+    end
+    def initialize_project
+        @project = Project.find(params[:project_id])
     end
 end
