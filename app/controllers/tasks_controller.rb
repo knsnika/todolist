@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
     
-    before_action :initialize_task, only: [:show, :edit, :update, :destroy]
+    before_action :initialize_task, only: [:show, :edit, :update, :destroy, :complete]
     before_action :initialize_project, only: [:index, :create, :new]
     
     def index
@@ -30,6 +30,11 @@ class TasksController < ApplicationController
     def destroy
         @task.destroy!
         redirect_to action: :index
+    end
+    
+    def complete
+        @task.update(completed: !@task.completed)
+        redirect_to action: :index, project_id: @task.project_id
     end
     
     private

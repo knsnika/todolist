@@ -4,6 +4,7 @@
         <tr>
             <th>Id</th>
             <th>Description</th>
+            <th>Completed</th>
         </tr>
     </thead>
     <tbody>
@@ -11,6 +12,7 @@
             <tr>
                 <td><%= link_to task.id, task %></td>
                 <td><%= task.description %></td>
+                <td><%= link_to task.completed ? "true" : "false", complete_task_path(task), method: :post %></td>
             </tr>
         <% end %>
     </tbody>

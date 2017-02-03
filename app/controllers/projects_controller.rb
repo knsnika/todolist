@@ -1,13 +1,12 @@
 class ProjectsController < ApplicationController
   
   before_action :initialize_project, only: [:show, :edit, :update, :destroy]
-  
+  before_action :authenticate_user!
+ 
   def index
-    @projects = Project.all
+    @projects = current_user.projects
   end
-  
   def show
-    @project = Project.find(params[:id])
   end
 
   def new
@@ -15,7 +14,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.create(project_params)
+    @project = current_user.projects.create(project_params)
     redirect_to action: :index
   end
 
@@ -23,7 +22,8 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.update(params[:id])
+    @project.update(project_params)
+    redirect_to action: :show, id: @project.id
     
   end
 
@@ -39,7 +39,7 @@ class ProjectsController < ApplicationController
   end
    
     def initialize_project
-        @task = Project.find(params[:id])
+        @project = Project.find(params[:id])
     end
 end
 
