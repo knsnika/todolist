@@ -1,6 +1,10 @@
 // Place all the styles related to the Tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+    background: url("priroda.jpg") no-repeat;
+    
+}
 table {
     border-collapse: collapse;
 }
@@ -10,6 +14,158 @@ td, th {
     padding: 5px 3px;
     text-align: center;
 }
-h1 {
+h1, h2 {
     color: #322;
+    font-family: Verdana, sans serif;
+    text-align: center;
+}
+.all {
+    margin: 0 auto;
+    width: 800px;
+}
+.header {
+    width: 800px;
+    height: 40px;
+    background-image: linear-gradient(to top, #315589, #8ab0d3);
+    color: #fff;
+    text-align: center;
+}
+.top {
+    line-height: 38px;
+    padding-left: 60px;
+    text-align: center;
+    
+}
+p {
+    /* line-height: 38px; */
+    font-family: Verdana, sans serif;
+    
+}
+.img_deadline, .img_plus {
+    float: left;
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+}
+
+.img_deadline {
+  background: image-url("icons_menu.png") no-repeat center center; 
+}
+
+.img_plus {
+  background: image-url("icons_add.png") no-repeat center center; 
+}
+
+.img_edit, .img_delete {
+    float: right;
+    width: 40px;
+    height: 40px;
+}
+
+.img_edit {
+  background: image-url("icons_edit.png") no-repeat center center;
+  float: right;
+}
+
+.img_delete {
+  background: image-url("icons_delete.png") no-repeat center center;
+  float: right;
+}
+
+.tasks {
+    background-image: linear-gradient(to top, #ccc, #e0e0e0);
+    width: 800px;
+    height: 40px;
+    text-align: center;
+    line-height: 38px;
+}
+
+.task_add_submit {
+    width: 110px;
+    height: 30px;
+    background-image: linear-gradient(to top, #508767, #94cbae);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-left: -10px;
+    border: 1px solid gray;
+    color: #fff;
+}
+.task_name {
+    width: 630px;
+    height: 24px;
+    color: black;
+    
+}
+
+.error_field {
+    box-shadow: 0 0 30px rgba(255,0,0,0.8);
+}
+
+.done {
+    width: 28px;
+    height: 25px;
+    padding: 10px;
+    line-height: 38px;
+    float: left;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.task_done {
+    float: left;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+}
+
+.task_title {
+    float: left;
+    line-height: 23px;
+    width: 622px;
+    height: 25px;
+    text-align: left;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-weight: 600;
+    color: #808080;
+    font-family: Verdana, sans serif;
+    font-size: 11pt;
+    background: #fff;
+}
+
+.icons {
+    float: left;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.icons .img_edit {
+    float: left;
+    width: 50px;
+    height: 43px;
+    margin: 1px;
+    
+}
+
+.icons .img_delete {
+    float: left;
+    width: 50px;
+    height: 43px;
+    margin: 1px;
+}
+
+.all_two {
+    margin: 100px auto;
+    width: 800px;
+}
+
+.add_todo {
+    width: 150px;
+    height: 40px;
+    background-image: linear-gradient(to top, #315589, #8ab0d3);
+    text-align: center;
+    color: #fff;
+    font-family: Verdana, sans serif;
+    margin: 0 auto;
+    line-height: 38px;
 }
