@@ -1,13 +1,8 @@
 
 angular.module('todoApp', ['ngResource']).controller('TodoListController', function($resource) {
-  var Project = $resource('/projects/:id',
-    {
-    id: '@id'
-    }, {
-    update: {
-      method: 'PUT'
-    }
-    });
+  var Project = $resource('/projects/:id', {id: '@id', name: '@name'},
+    { update: { method: 'PUT',  params: { name: 'name' } }
+  });
   
   
   var vm = this;
@@ -42,10 +37,7 @@ angular.module('todoApp', ['ngResource']).controller('TodoListController', funct
   }
   
   vm.editProject = function(project) {
-    console.log(project)
-    
-    if (
-      vm.inputEditActive == project.id) {
+    if ( vm.inputEditActive == project.id ) {
       vm.inputEditActive = 0;
     }
     else {
@@ -53,8 +45,20 @@ angular.module('todoApp', ['ngResource']).controller('TodoListController', funct
     }
   }
 
-  vm.updateProject = function(project) {
-    console.log(vm.inputEdit)
-    inputEdit.update();
+  vm.updateProject = function(text, project) {
+    Project.update({
+      id: project.id,
+      name: text
+    }, function (response) {
+      if (response.status === 200) {
+        vm.projects.find(function(prj) {
+          if (prj.id  === project.id) {
+            prj.name = text
+          }
+        });
+        vm.inputEditActive = 0;
+      }
+    });
   }
+  
 });
