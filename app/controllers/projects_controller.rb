@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
  
   def index
     @projects = current_user.projects
+    render json: @projects
   end
   def show
   end
@@ -15,7 +16,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.create(project_params)
-    redirect_to action: :index
+    render json: @project
   end
 
   def edit
@@ -29,7 +30,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy!
-    redirect_to action: :index
+    render json: ""
   end
   
   private

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html ang="en" ng-app>
+<html ng-app="todoApp">
 <head>
   <title>Workspace</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-resource.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
 </head>
 <body>
 
@@ -19,169 +20,7 @@
 <%= link_to "Log In", user_session_path %>
 <% end %>
 
-<h1>SIMPLE TODO LIST</h1>
-<h2>FROM RUBY GARAGE</h2>
-<div class="all">
-	<div class="header">
-	  <div class="img_deadline"></div>
-	  <div class="img_delete"></div>
-	  <div class="img_edit"></div>
-	  <div class="top">
-	    <p>Complete the test task for Ruby Garage</p>
-	  </div>
-	</div>
-<div class="tasks">
-  <div class="img_plus"></div>
-  <form class="new_task" id="new_task" action="/tasks" accept-charset="UTF-8" data-remote="true" method="post">
-    <input name="utf8" type="hidden" value="✓">
-    <input type="hidden" name="authenticity_token" value="5Eiy2vYuK6k63lH+vcrb27MpOGHtdzsfeZRWPiGP5BHjXWWHSi2cP67U84VCfZTzi4SkmNSDrclg0+flyiHJcA==">
-		<input placeholder="Start typing here to reate a task..." type="text" name="task[name]" class="task_name" class="error-field">
-		<input value="11" type="hidden" name="task[project_id]" id="task_project_id">
-		<input type="submit" name="commit" value="Add Task" class="task_add_submit">
-  </form>
-</div>
-<div class="task_numb">
-  <div class="tbody">
-    <tr class="task " id="task17">
-	    <td class="done">
-	    	<div class="done">
-		     	<input type="checkbox" name="done" class="task_done">
-	  	  		<form class="edit_task" id="edit_task_17" action="/done/17" accept-charset="UTF-8" data-remote="true" method="post">
-	  	  	</div>
-	  	   <!-- <input name="utf8" type="hidden" value="✓"> 
-	  	    <input type="hidden" name="_method" value="patch">
-	  	    <input type="hidden" name="authenticity_token" value="XUqjk7i7FRi+xLngam5wN2l/BhlYDSMd8X8/sGDnByNaX3TOBLiijirOG5uV2T8fUdKa4GH5tcvoOI5ri0kqQg==">
-			    <input value="false" class="checkbox_value" type="hidden" name="task[done]" id="task_done">
-			    <input type="submit" name="commit" value="Save" class="hidden">-->
-        </form>
-      </td>
-	<td class="row">
-	</td>
-	<td class="title">
-		<div class="task_title">
-			<span class="name" id="taskname17">Progect1</span>
-		</div>
-		<div class="edit-form task_title_edit"></div>
-		<div class="icons">
-			<div class="img_edit"></div>
-			<div class="img_delete"></div>
-	  </div>
-		<!--delete-->
-			<!--<form class="edit_task" id="edit_task_17" action="/title/17" accept-charset="UTF-8" data-remote="true" method="post">
-			  <input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch">
-			  <input type="hidden" name="authenticity_token" value="XUqjk7i7FRi+xLngam5wN2l/BhlYDSMd8X8/sGDnByNaX3TOBLiijirOG5uV2T8fUdKa4GH5tcvoOI5ri0kqQg==">
-				<input type="text" value="fasfsaf" name="task[name]" id="task_name">
-				<input type="submit" name="commit" value="Save" class="task_title_save">
-      </form>
-    </div> (delete)
-	</td>
-	<td class="move icon-move">
-		<div><sub><a class="ion-arrow-up-b" data-remote="true" rel="nofollow" data-method="post" href="/up/17"></a></sub></div>
-		<div><sup><a class="ion-arrow-down-b" data-remote="true" rel="nofollow" data-method="post" href="/down/17"></a></sup></div>
-	</td>
-	<td class="edit icon-edit">
-		<a class="ion-edit task_edit_button" href="#"></a>
-	</td>
-	<td class="delete icon-delete">
-		<a class="ion-trash-a" data-remote="true" rel="nofollow" data-method="delete" href="/tasks/17"></a>
-	</td>
-	  <td class="date icon_date icon-date">
-		<span class="hidden">17</span>
-		  <span class="ion-calendar">-->
-			<!-- <div class="triangle-border"></div>
-			<div class="triangle-left"></div>
-			<div class="recntagle"></div> -->
-			  <div class="date">
-				<span id="taskdeadline17"></span>
-			  </div>
-		  </span>
-	  </td>
-    </tr>
-  </div>
-</div>
-</div>
-
-<div class="all_two">
-	<div class="header">
-	  <div class="img_deadline"></div>
-	  <div class="img_delete"></div>
-	  <div class="img_edit"></div>
-	  <div class="top">
-	    <p>For Home</p>
-	  </div>
-	</div>
-<div class="tasks">
-  <div class="img_plus"></div>
-  <form class="new_task" id="new_task" action="/tasks" accept-charset="UTF-8" data-remote="true" method="post">
-    <input name="utf8" type="hidden" value="✓">
-    <input type="hidden" name="authenticity_token" value="5Eiy2vYuK6k63lH+vcrb27MpOGHtdzsfeZRWPiGP5BHjXWWHSi2cP67U84VCfZTzi4SkmNSDrclg0+flyiHJcA==">
-		<input placeholder="Start typing here to reate a task..." type="text" name="task[name]" class="task_name" class="error-field">
-		<input value="11" type="hidden" name="task[project_id]" id="task_project_id">
-		<input type="submit" name="commit" value="Add Task" class="task_add_submit">
-  </form>
-</div>
-<div class="task_numb">
-  <div class="tbody">
-    <tr class="task " id="task17">
-	    <td class="done">
-	    	<div class="done">
-		     	<input type="checkbox" name="done" class="task_done">
-	  	  		<form class="edit_task" id="edit_task_17" action="/done/17" accept-charset="UTF-8" data-remote="true" method="post">
-	  	  	</div>
-	  	   <!-- <input name="utf8" type="hidden" value="✓"> 
-	  	    <input type="hidden" name="_method" value="patch">
-	  	    <input type="hidden" name="authenticity_token" value="XUqjk7i7FRi+xLngam5wN2l/BhlYDSMd8X8/sGDnByNaX3TOBLiijirOG5uV2T8fUdKa4GH5tcvoOI5ri0kqQg==">
-			    <input value="false" class="checkbox_value" type="hidden" name="task[done]" id="task_done">
-			    <input type="submit" name="commit" value="Save" class="hidden">-->
-        </form>
-      </td>
-	<td class="row">
-	</td>
-	<td class="title">
-		<div class="task_title">
-			<span class="name" id="taskname17">Home Task</span>
-		</div>
-		<div class="edit-form task_title_edit"></div>
-		<div class="icons">
-			<div class="img_edit"></div>
-			<div class="img_delete"></div>
-	  </div>
-		<!--delete-->
-			<!--<form class="edit_task" id="edit_task_17" action="/title/17" accept-charset="UTF-8" data-remote="true" method="post">
-			  <input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch">
-			  <input type="hidden" name="authenticity_token" value="XUqjk7i7FRi+xLngam5wN2l/BhlYDSMd8X8/sGDnByNaX3TOBLiijirOG5uV2T8fUdKa4GH5tcvoOI5ri0kqQg==">
-				<input type="text" value="fasfsaf" name="task[name]" id="task_name">
-				<input type="submit" name="commit" value="Save" class="task_title_save">
-      </form>
-    </div> (delete)
-	</td>
-	<td class="move icon-move">
-		<div><sub><a class="ion-arrow-up-b" data-remote="true" rel="nofollow" data-method="post" href="/up/17"></a></sub></div>
-		<div><sup><a class="ion-arrow-down-b" data-remote="true" rel="nofollow" data-method="post" href="/down/17"></a></sup></div>
-	</td>
-	<td class="edit icon-edit">
-		<a class="ion-edit task_edit_button" href="#"></a>
-	</td>
-	<td class="delete icon-delete">
-		<a class="ion-trash-a" data-remote="true" rel="nofollow" data-method="delete" href="/tasks/17"></a>
-	</td>
-	  <td class="date icon_date icon-date">
-		<span class="hidden">17</span>
-		  <span class="ion-calendar">-->
-			<!-- <div class="triangle-border"></div>
-			<div class="triangle-left"></div>
-			<div class="recntagle"></div> -->
-			  <div class="date">
-				<span id="taskdeadline17"></span>
-			  </div>
-		  </span>
-	  </td>
-    </tr>
-  </div>
-</div>
-</div>
-<div class="add_todo">Add TODO List</div>
-
+<%= yield %>
 
 </body>
 </html>

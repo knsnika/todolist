@@ -1,0 +1,90 @@
+<h1>SIMPLE TODO LIST</h1>
+<h2>FROM RUBY GARAGE</h2>
+<div ng-controller="TodoListController as todoList">
+	<div ng-repeat="project in todoList.projects">
+		<div class="all">
+			<div class="header">
+				<div class="img_deadline"></div>
+				<div class="top">
+					<div ng-show="todoList.inputEditActive == project.id">
+						<input ng-show="todoList.inputEditActive" ng-model="todoList.inputEdit" type="text"/>
+						<buttom ng-click="todoList.updateProject()" class="edit_project">Edit</buttom>
+					</div>
+					<div ng-show="todoList.inputEditActive != project.id">
+						{{project.name}}
+					</div>
+				</div>
+				<div ng-click="todoList.deleteProject(project.id)" class="img_delete"></div>
+				<div ng-click="todoList.editProject(project)" class="img_edit"></div>
+			</div>
+			<div class="tasks">
+			  <div class="img_plus"></div>
+			  <form class="new_task" id="new_task" action="/tasks" accept-charset="UTF-8" data-remote="true" method="post">
+					<input placeholder="Start typing here to reate a task..." type="text" name="task[name]" class="task_name" class="error-field">
+					<input type="submit" name="commit" value="Add Task" class="task_add_submit">
+			  </form>
+			</div>
+			<div class="task_numb">
+			  <div class="tbody">
+			    <tr class="task " id="task17">
+				    <td class="done">
+				    	<div class="done">
+					     	<input type="checkbox" name="done" class="task_done">
+				  	  		<form class="edit_task" id="edit_task_17" action="/done/17" accept-charset="UTF-8" data-remote="true" method="post">
+				  	  	</div>
+				  	   <!-- <input name="utf8" type="hidden" value="✓"> 
+				  	    <input type="hidden" name="_method" value="patch">
+				  	    <input type="hidden" name="authenticity_token" value="XUqjk7i7FRi+xLngam5wN2l/BhlYDSMd8X8/sGDnByNaX3TOBLiijirOG5uV2T8fUdKa4GH5tcvoOI5ri0kqQg==">
+						    <input value="false" class="checkbox_value" type="hidden" name="task[done]" id="task_done">
+						    <input type="submit" name="commit" value="Save" class="hidden">-->
+			        </form>
+			      </td>
+				<td class="row">
+				</td>
+				<td class="title">
+					<div class="task_title">
+						<span class="name" id="taskname17">Progect1</span>
+					</div>
+					<div class="icons">
+						<a href="#"><div class="img_edit"></div></a>
+						<a href="#"><div class="img_delete"></div></a>
+					</div>
+					<!--delete-->
+						<!--<form class="edit_task" id="edit_task_17" action="/title/17" accept-charset="UTF-8" data-remote="true" method="post">
+						  <input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch">
+						  <input type="hidden" name="authenticity_token" value="XUqjk7i7FRi+xLngam5wN2l/BhlYDSMd8X8/sGDnByNaX3TOBLiijirOG5uV2T8fUdKa4GH5tcvoOI5ri0kqQg==">
+							<input type="text" value="fasfsaf" name="task[name]" id="task_name">
+							<input type="submit" name="commit" value="Save" class="task_title_save">
+			      </form>
+			    </div> (delete)
+				</td>
+				<td class="move icon-move">
+					<div><sub><a class="ion-arrow-up-b" data-remote="true" rel="nofollow" data-method="post" href="/up/17"></a></sub></div>
+					<div><sup><a class="ion-arrow-down-b" data-remote="true" rel="nofollow" data-method="post" href="/down/17"></a></sup></div>
+				</td>
+				<td class="edit icon-edit">
+					<a class="ion-edit task_edit_button" href="#"></a>
+				</td>
+				<td class="delete icon-delete">
+					<a class="ion-trash-a" data-remote="true" rel="nofollow" data-method="delete" href="/tasks/17"></a>
+				</td>
+				  <td class="date icon_date icon-date">
+					<span class="hidden">17</span>
+					  <span class="ion-calendar">-->
+						<!-- <div class="triangle-border"></div>
+						<div class="triangle-left"></div>
+						<div class="recntagle"></div> -->
+						  <div class="date">
+							<span id="taskdeadline17"></span>
+						  </div>
+					  </span>
+				  </td>
+			    </tr>
+			  </div>
+			</div>
+		</div>
+	</div>
+    <button ng-click="todoList.addProject()" class="add_todo">Add TODO List</button>
+	<input ng-show="todoList.inputActive" ng-model="todoList.input" type="text"/>
+	
+</div>
