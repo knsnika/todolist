@@ -22,6 +22,7 @@ h1, h2 {
 .all {
     width: 800px;
     margin: 0 auto;
+    padding-top: 30px;
 }
 .header {
     width: 800px;
@@ -79,7 +80,6 @@ h1, h2 {
 }
 
 .task_numb {
-    height: 43px;
     border: 1px solid #ccc;
     background: #fff;
     display: inline-block;
@@ -179,7 +179,7 @@ input[type="button"] {
 .ng-scope {
     text-align: center;
     margin: 0 auto;
-    padding-top: 30px;
+    
 }
 
 .edit_project {

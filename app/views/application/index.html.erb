@@ -19,40 +19,43 @@
 			</div>
 			<div class="tasks">
 			  <div class="img_plus"></div>
-			  <div class="new_task" id="new_task" action="/tasks" accept-charset="UTF-8" data-remote="true" method="post">
-					<input placeholder="Start typing here to reate a task..." type="text" name="task[name]" class="task_name" class="error-field">
+			  <div class="new_task" id="new_task">
+					<input placeholder="Start typing here to сreate a task..." type="text" ng-model="project.newTask" class="task_name" class="error-field">
 					<!-- <input type="submit" name="commit" value="Add Task" class="task_add_submit"> --->
-					<button class="task_add_submit">Add Task</button>
+					<button class="task_add_submit" ng-click="todoList.createTask(project, project.new_task)">Add Task</button>
 			  </div>
 			</div>
-			<div class="task_numb">
-			  <div class="tbody">
-			    <tr class="task " id="task17">
-			      <td class="done">	
-			    	<div class="done">
-				     	<input type="checkbox" name="done" class="task_done">
-			  	  		<form class="edit_task" id="edit_task_17" action="/done/17" accept-charset="UTF-8" data-remote="true" method="post">
-			  	  	</div>
-			        </form>
-			      </td>
-				<td class="row">
-				</td>
-				<td class="title">
-					<div class="task_title">
-						<span class="name" id="taskname17">Progect1</span>
-					</div>
-					<div class="icons">
-						<a href="#"><div class="img_edit"></div></a>
-						<a href="#"><div class="img_delete"></div></a>
-					</div>
-						  <div class="date">
-							<span id="taskdeadline17"></span>
-						  </div>
-					  </span>
-				  </td>
-			    </tr>
-			  </div>
-			</div>
+			
+      <div ng-repeat="task in project.tasks">
+        <div class="task_numb">
+          <div class="tbody">
+            <tr class="task " id="task17">
+              <td class="done">
+                <div class="done">
+                  <input type="checkbox" name="done" class="task_done">
+                  <form class="edit_task"  >
+                </div>
+                </form>
+              </td>
+              <td class="row">
+              </td>
+              <td class="title">
+                <div class="task_title">
+                  <span class="name" id="taskname17">{{task.description}}</span>
+                </div>
+                <div class="icons">
+                  <a href="#"><div class="img_edit"></div></a>
+                  <a href="#"><div class="img_delete"></div></a>
+                </div>
+                <div class="date">
+                  <span id="taskdeadline17"></span>
+                </div>
+                </span>
+              </td>
+            </tr>
+          </div>
+        </div>
+      </div>
 		</div>
 	</div>
     <button ng-click="todoList.addProject()" class="add_todo">Add TODO List</button>

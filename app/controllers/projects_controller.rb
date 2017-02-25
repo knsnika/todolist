@@ -1,27 +1,16 @@
 class ProjectsController < ApplicationController
-  
   before_action :initialize_project, only: [:update, :destroy]
   before_action :authenticate_user!
  
   def index
     @projects = current_user.projects
-    render json: @projects
+    render json: @projects, include: :tasks
   end
-  
-  # def show
-  # end
-
-  # def new
-  #   @project = Project.new
-  # end
 
   def create
     @project = current_user.projects.create(project_params)
     render json: @project
   end
-
-  # def edit
-  # end
 
   def update
     if @project.update(project_params)

@@ -4,6 +4,7 @@ angular.module('todoApp', ['ngResource']).controller('TodoListController', funct
     { update: { method: 'PUT',  params: { name: 'name' } }
   });
   
+  var Task = $resource('/projects/:project_id/tasks/:id', {id: '@id', project_id: '@project_id', description: '@description'})
   
   var vm = this;
   vm.projects = [];
@@ -59,6 +60,18 @@ angular.module('todoApp', ['ngResource']).controller('TodoListController', funct
         vm.inputEditActive = 0;
       }
     });
+  }
+  
+    vm.createTask = function (project) {
+    var task = new Task({
+      project_id: project.id,
+      description: project.newTask
+    })
+    project.newTask = ''
+    task.$save(function (response) {
+      project.tasks.push(response.toJSON());
+    })
+    console.log(vm.projects)
   }
   
 });

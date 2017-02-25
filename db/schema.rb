@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20170203120109) do
 
   create_table "tasks", force: :cascade do |t|
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "project_id"
-    t.boolean  "completed"
+    t.boolean  "completed",   default: false
   end
 
   add_index "tasks", ["project_id"], name: "index_tasks_on_project_id"
