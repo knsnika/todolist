@@ -1,5 +1,5 @@
 
-angular.module('todoApp', ['ngResource']).controller('TodoListController', function($resource) {
+angular.module('todoApp', ['ngResource']).controller('TodoListController', [ '$resource', function($resource) {
   var Project = $resource('/projects/:id', {id: '@id', name: '@name'},
     { 
       update: { method: 'PUT',  params: { name: 'name' } }
@@ -128,4 +128,4 @@ angular.module('todoApp', ['ngResource']).controller('TodoListController', funct
   };
   
   
-});
+}]);
