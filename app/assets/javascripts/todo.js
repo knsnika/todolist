@@ -127,17 +127,5 @@ angular.module('todoApp', ['ngResource']).controller('TodoListController', funct
     });
   };
   
-//   vm.sortableOptions = {
-//     stop: function(e, ui) {
-//       console.log(e)
-//       console.log()
-//       // return angular.forEach($scope.project.tasks, function(value, key) {
-//       //   return Task.update({
-//       //     id: value.id,
-//       //     position: key
-//       //   });
-//       // });
-//     }
-// };
   
 });
