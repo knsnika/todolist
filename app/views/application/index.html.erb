@@ -8,7 +8,7 @@
 				<div class="top">
 					<div ng-show="todoList.inputEditActive == project.id">
 						<input ng-show="todoList.inputEditActive" ng-model="todoList.inputEdit" type="text"/>
-						<buttom ng-click="todoList.updateProject(todoList.inputEdit, project)" class="edit_project">Edit</buttom>
+						<button ng-click="todoList.updateProject(todoList.inputEdit, project)" class="edit_project">Edit</button>
 					</div>
 					<div ng-show="todoList.inputEditActive != project.id">
 						{{project.name}}
@@ -25,27 +25,30 @@
 					<button class="task_add_submit" ng-click="todoList.createTask(project, project.new_task)">Add Task</button>
 			  </div>
 			</div>
-			
-      <div ng-repeat="task in project.tasks">
+			 <div ng-repeat="task in project.tasks">
         <div class="task_numb">
-          <div class="tbody">
             <tr class="task " id="task17">
               <td class="done">
                 <div class="done">
-                  <input type="checkbox" name="done" class="task_done">
-                  <form class="edit_task"  >
+                  <input type="checkbox" name="done" class="task_done"
+                         ng-model='task.completed'
+                         ng-change='todoList.toggleComplete(task)'>
                 </div>
-                </form>
               </td>
               <td class="row">
               </td>
               <td class="title">
                 <div class="task_title">
-                  <span class="name" id="taskname17">{{task.description}}</span>
+                  <div ng-if="todoList.inputEditTask === task.id">
+                    <input ng-model="todoList.newTaskDescription" type="text"/>
+                    <button ng-click="todoList.updateTask(project.id, task.id)">save</button>
+                    <button ng-click="todoList.inputEditTask = 0">cancel</button>
+                  </div>
+                  <span class="name" ng-class="task.completed ? 'class-completed' : '' " ng-show="todoList.inputEditTask != task.id">{{task.description}}</span>
                 </div>
                 <div class="icons">
-                  <a href="#"><div class="img_edit"></div></a>
-                  <a href="#"><div class="img_delete"></div></a>
+                  <div ng-click="todoList.editTask(task.id)" class="img_edit"></div>
+                  <div ng-click="todoList.deleteTask(project.id, task)" class="img_delete"></div>
                 </div>
                 <div class="date">
                   <span id="taskdeadline17"></span>
@@ -53,9 +56,12 @@
                 </span>
               </td>
             </tr>
+          
           </div>
         </div>
-      </div>
+			
+
+      
 		</div>
 	</div>
     <button ng-click="todoList.addProject()" class="add_todo">Add TODO List</button>

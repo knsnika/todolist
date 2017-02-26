@@ -8,24 +8,22 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task.update(task_params)
-    redirect_to action: :show, id: @task.id
+    if @task.update(task_params)
+      render json: { status: 200 }
+    else
+      render json: { status: 400 }
+    end
   end
 
   def destroy
     @task.destroy!
-    redirect_to action: :index
-  end
-
-  def complete
-    @task.update(completed: !@task.completed)
-    redirect_to action: :index, project_id: @task.project_id
+    render json: { status: 200 }
   end
 
   private
 
   def task_params
-    params.require(:task).permit(:description)
+    params.require(:task).permit(:description, :completed)
   end
 
   def initialize_task
